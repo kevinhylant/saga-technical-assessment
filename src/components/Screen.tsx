@@ -1,23 +1,16 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
-import { token } from '../DesignSystem';
+import { styles } from './Screen.styles';
 
 interface Props {
   children: React.ReactNode;
   containerStyle?: object; // TODO more specific
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: token.colorWhite,
-  },
-});
-
 export const Screen: React.FunctionComponent<Props> = ({
   children,
   containerStyle,
 }) => {
-  return <View style={[styles.root, containerStyle]}>{children}</View>;
+  return <View style={[styles.container, containerStyle]}>{children}</View>;
 };
