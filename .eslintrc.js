@@ -14,5 +14,6 @@ module.exports = {
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
+    "@typescript-eslint/no-var-requires": "off",
   }
 };
