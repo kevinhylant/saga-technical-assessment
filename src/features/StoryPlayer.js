@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import TrackPlayer, {
   useTrackPlayerProgress,
@@ -15,16 +15,8 @@ import {
 } from 'react-native';
 
 const styles = StyleSheet.create({
-  card: {
-    width: '80%',
-    elevation: 1,
-    borderRadius: 4,
-    shadowRadius: 2,
-    shadowOpacity: 0.1,
-    alignItems: 'center',
-    shadowColor: 'black',
+  container: {
     backgroundColor: 'white',
-    shadowOffset: { width: 0, height: 1 },
   },
   cover: {
     width: 40,
@@ -87,25 +79,62 @@ ControlButton.propTypes = {
 
 export function StoryPlayer(props) {
   const playbackState = usePlaybackState();
+  const progress = useTrackPlayerProgress();
   const [trackTitle, setTrackTitle] = useState('');
   const [trackArtwork, setTrackArtwork] = useState();
   const [trackArtist, setTrackArtist] = useState('');
+
   useTrackPlayerEvents(['playback-track-changed'], async (event) => {
     console.log({ event });
     if (event.type === TrackPlayer.TrackPlayerEvents.PLAYBACK_TRACK_CHANGED) {
       const track = await TrackPlayer.getTrack(event.nextTrack);
       const { title, artist, artwork } = track || {};
-      console.log({ track });
+
       setTrackTitle(title);
       setTrackArtist(artist);
       setTrackArtwork(artwork);
     }
   });
 
-  const { style, onNext, onPrevious, onTogglePlayback } = props;
+  async function initializePlayerWithTrack() {
+    console.log('initializePlayerWithTrack');
+    await TrackPlayer.setupPlayer();
+    await TrackPlayer.add(props.track);
+  }
+
+  async function togglePlayback() {
+    const currentTrack = await TrackPlayer.getCurrentTrack();
+    console.log({ currentTrack });
+    // Just in case the track fails to load when the component mounts
+    // let's reset the player and add the track again
+    if (currentTrack == null) {
+      await TrackPlayer.reset();
+      await TrackPlayer.add(props.track);
+      await TrackPlayer.play();
+    } else {
+      if (playbackState === TrackPlayer.STATE_PAUSED) {
+        await TrackPlayer.play();
+      } else {
+        await TrackPlayer.pause();
+      }
+    }
+  }
+
+  async function seekBackward() {
+    const { position } = progress;
+    await TrackPlayer.seekTo(position - props.seekBySeconds);
+  }
+
+  async function seekForward() {
+    const { position } = progress;
+    await TrackPlayer.seekTo(position + props.seekBySeconds);
+  }
+
+  useEffect(() => {
+    initializePlayerWithTrack();
+  }, []);
 
   let middleButtonText = 'Play';
-
   if (
     playbackState === TrackPlayer.STATE_PLAYING ||
     playbackState === TrackPlayer.STATE_BUFFERING
@@ -114,7 +143,7 @@ export function StoryPlayer(props) {
   }
 
   return (
-    <View style={[styles.card, style]}>
+    <View style={[styles.container, props.containerStyle]}>
       <ProgressBar />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flexDirection: 'column' }}>
@@ -124,19 +153,18 @@ export function StoryPlayer(props) {
         <Image style={styles.cover} source={{ uri: trackArtwork }} />
       </View>
       <View style={styles.controls}>
-        <ControlButton title={'<<'} onPress={onPrevious} />
-        <ControlButton title={middleButtonText} onPress={onTogglePlayback} />
-        <ControlButton title={'>>'} onPress={onNext} />
+        <ControlButton title={'<<'} onPress={seekBackward} />
+        <ControlButton title={middleButtonText} onPress={togglePlayback} />
+        <ControlButton title={'>>'} onPress={seekForward} />
       </View>
     </View>
   );
 }
 
 StoryPlayer.propTypes = {
-  style: ViewPropTypes.style,
-  onNext: PropTypes.func.isRequired,
-  onPrevious: PropTypes.func.isRequired,
-  onTogglePlayback: PropTypes.func.isRequired,
+  containerStyle: ViewPropTypes.style,
+  seekBySeconds: PropTypes.func.isRequired,
+  track: PropTypes.object.isRequired,
 };
 
 StoryPlayer.defaultProps = {

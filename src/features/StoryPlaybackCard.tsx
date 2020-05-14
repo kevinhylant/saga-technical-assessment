@@ -1,6 +1,18 @@
-import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
-import TrackPlayer from 'react-native-track-player';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import TrackPlayer, {
+  useTrackPlayerProgress,
+  usePlaybackState,
+  useTrackPlayerEvents,
+} from 'react-native-track-player';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewPropTypes,
+} from 'react-native';
 
 import { StoryPlayer } from './StoryPlayer';
 import { styles } from './StoryPlaybackCard.styles';
@@ -23,50 +35,40 @@ interface Props {
   };
 }
 
+function getTrack(story) {
+  const { id, createdAt, creator, actionInfo } = story;
+  const creatorFullName = `${creator.firstName} ${creator.lastName}`;
+
+  return {
+    id,
+    url: actionInfo.media_url,
+    title: actionInfo.title,
+    artist: creatorFullName,
+    date: createdAt,
+    artwork: creator.thumbnail,
+  };
+}
+
 export const StoryPlaybackCard: React.FunctionComponent<Props> = ({
   story,
 }) => {
+  const [track, setTrack] = useState();
+
   useEffect(() => {
-    const {
-      id,
-      createdAt,
-      creator,
-      actionInfo: { title, length_ms: lengthMs, media_url: url, description },
-    } = story;
-    const creatorFullName = `${creator.firstName} ${creator.lastName}`;
+    if (story) {
+      setTrack(getTrack(story));
+    }
+  }, [story]);
 
-    const track = {
-      id, // Must be a string, required
-      url,
-      // url: require('./avaritia.ogg'), // Load media from the app bundle
-      // url: 'file:///storage/sdcard0/Music/avaritia.wav' // Load media from the file system
-      title,
-      artist: creatorFullName,
-      date: createdAt, // RFC 3339
-      artwork: creator.thumbnail, // Load artwork from the network
-      // artwork: require('./avaritia.jpg'), // Load artwork from the app bundle
-      // artwork: 'file:///storage/sdcard0/Downloads/artwork.png', // Load artwork from the file system
-    };
-
-    TrackPlayer.add([track]).then(function () {
-      // TrackPlayer.play();
-      // TrackPlayer.pause();
-      // TrackPlayer.stop();
-      // TrackPlayer.reset();
-    });
-  }, []);
-  console.log({ story });
-  if (!story) {
+  if (!track) {
     return null;
   }
 
-
-  setTimeout(() => {
-    
-  }, 1000)
   return (
-    <View style={styles.container}>
-      <StoryPlayer />
-    </View>
+    <StoryPlayer
+      seekBySeconds={10}
+      containerStyle={styles.card}
+      track={track}
+    />
   );
 };
