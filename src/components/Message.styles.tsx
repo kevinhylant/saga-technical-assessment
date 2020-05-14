@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { isIphoneX } from 'react-native-iphone-x-helper';
 
 import { token } from '../DesignSystem';
 

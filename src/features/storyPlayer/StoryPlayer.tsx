@@ -4,119 +4,14 @@ import TrackPlayer, {
   usePlaybackState,
   useTrackPlayerEvents,
 } from 'react-native-track-player';
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import { Image, Text, View, ViewStyle } from 'react-native';
 
-import { PressHandler, Track } from '../../Types';
 import { Message } from '../../components/Message';
 import { icons } from '../../assets';
-import { token, fonts } from '../../DesignSystem';
-
-const progressDotSize = 10;
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: token.colorWhite,
-  },
-  cover: {
-    width: 80,
-    height: 80,
-    borderRadius: token.radiusLarge,
-    backgroundColor: token.colorBrandLight,
-  },
-  progress: {
-    height: 1,
-    marginHorizontal: token.spacingSmall,
-    marginTop: token.spacingLarge,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  progressDot: {
-    position: 'absolute',
-    backgroundColor: token.colorBrand,
-    width: progressDotSize,
-    height: progressDotSize,
-    bottom: -(progressDotSize / 2),
-    borderRadius: progressDotSize / 2,
-  },
-  title: {
-    ...fonts.regular,
-    flexWrap: 'wrap',
-  },
-  artist: {
-    ...fonts.tiny,
-    marginTop: token.spacingSmall,
-  },
-  description: {
-    ...fonts.small,
-    color: token.colorGray70,
-    width: '100%',
-  },
-  controls: {
-    marginVertical: 20,
-    flexDirection: 'row',
-  },
-  controlContainer: {
-    marginHorizontal: token.spacingSmallPlus,
-  },
-  controlIcon: {
-    width: 24,
-    height: 24,
-    margin: token.spacingSmallPlus,
-  },
-  controlIconSeekBackward: {
-    transform: [{ scaleX: -1 }],
-  },
-});
-
-export const ProgressBar: React.FunctionComponent<{}> = () => {
-  const progress = useTrackPlayerProgress();
-  const { position, duration } = progress;
-  const percentComplete = `${(position / (duration || 1)) * 100}%`;
-
-  return (
-    <View style={styles.progress}>
-      <View style={{ flex: progress.position, backgroundColor: 'red' }} />
-      <View
-        style={{
-          width: '100%',
-          backgroundColor: token.colorGray30,
-          height: 3,
-        }}
-      />
-      <View
-        style={[
-          {
-            left: percentComplete,
-          },
-          styles.progressDot,
-        ]}
-      />
-    </View>
-  );
-};
-
-interface ControlButtonProps {
-  iconSource: ImageSourcePropType;
-  onPress: PressHandler;
-  style?: ViewStyle;
-}
-
-export const ControlButton: React.FunctionComponent<ControlButtonProps> = ({
-  iconSource,
-  onPress,
-  style,
-}) => (
-  <TouchableOpacity style={styles.controlContainer} onPress={onPress}>
-    <Image source={iconSource} style={[styles.controlIcon, style]} />
-  </TouchableOpacity>
-);
+import { Track } from '../../Types';
+import { StoryPlayerControlButton } from './StoryPlayerControlButton';
+import { StoryPlayerProgressBar } from './StoryPlayerProgressBar';
+import { styles } from './StoryPlayer.styles';
 
 interface Props {
   containerStyle?: ViewStyle;
@@ -174,7 +69,7 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
   ) {
     togglePlayBackIconSource = icons.pause;
   }
-  console.log({ togglePlayBackIconSource });
+
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={{ flexDirection: 'row' }}>
@@ -184,18 +79,18 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
         </View>
         <Image style={styles.cover} source={{ uri: track.artwork }} />
       </View>
-      <ProgressBar />
+      <StoryPlayerProgressBar />
       <View style={styles.controls}>
-        <ControlButton
+        <StoryPlayerControlButton
           iconSource={icons.timeSeekForward}
           onPress={seekBackward}
           style={styles.controlIconSeekBackward}
         />
-        <ControlButton
+        <StoryPlayerControlButton
           iconSource={togglePlayBackIconSource}
           onPress={togglePlayback}
         />
-        <ControlButton
+        <StoryPlayerControlButton
           iconSource={icons.timeSeekForward}
           onPress={seekForward}
         />
