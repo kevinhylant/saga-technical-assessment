@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
 import { Story, Track } from '../Types';
 import { StoryPlayer } from './storyPlayer/StoryPlayer';
@@ -11,13 +12,14 @@ interface Props {
 function getTrack(story: Story): Track {
   const { id, createdAt, creator, actionInfo } = story;
   const creatorFullName = `${creator.firstName} ${creator.lastName}`;
+  const date = moment(createdAt).format('MMM D, YYYY');
 
   return {
     id,
     url: actionInfo.media_url,
     title: actionInfo.title,
     artist: creatorFullName,
-    date: createdAt,
+    date,
     artwork: creator.thumbnail,
     description: actionInfo.description,
   };

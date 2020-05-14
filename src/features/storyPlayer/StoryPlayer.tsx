@@ -74,7 +74,7 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
     <View style={[styles.container, containerStyle]}>
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flexDirection: 'column', flex: 1 }}>
-          <Text style={styles.artist}>{track.artist}</Text>
+          <Text style={styles.artist}>{`${track.artist} • ${track.date}`}</Text>
           <Text style={styles.title}>{track.title}</Text>
         </View>
         <Image style={styles.cover} source={{ uri: track.artwork }} />
