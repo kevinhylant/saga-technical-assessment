@@ -3,20 +3,48 @@ import { fonts, token } from '../DesignSystem';
 
 export const styles = StyleSheet.create({
   container: {
-    height: 200, // placeholder for content
-    width: '100%',
+    // width: '100%',
     backgroundColor: token.colorWhite,
     borderRadius: token.radiusLarge,
-    padding: token.spacingRegular,
+    // padding: token.spacingRegular,
   },
-  authorDate: {
-    ...fonts.small,
+  card: {
+    width: '80%',
+    elevation: 1,
+    borderRadius: 4,
+    shadowRadius: 2,
+    shadowOpacity: 0.1,
+    alignItems: 'center',
+    shadowColor: 'black',
+    backgroundColor: 'white',
+    shadowOffset: { width: 0, height: 1 },
+  },
+  cover: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'grey',
+  },
+  progress: {
+    height: 1,
+    width: '90%',
+    marginTop: 10,
+    flexDirection: 'row',
   },
   title: {
-    ...fonts.regular,
+    marginTop: 10,
   },
-  image: {
-    height: token.sizeThumbnailHeight,
-    width: token.sizeThumbnailWidth,
+  artist: {
+    fontWeight: 'bold',
+  },
+  controls: {
+    marginVertical: 20,
+    flexDirection: 'row',
+  },
+  controlButtonContainer: {
+    flex: 1,
+  },
+  controlButtonText: {
+    fontSize: 18,
+    textAlign: 'center',
   },
 });

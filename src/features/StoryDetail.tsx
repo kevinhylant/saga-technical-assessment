@@ -7,12 +7,12 @@ import { StoryFeedback } from './StoryFeedback';
 import { styles } from './StoryDetail.styles';
 
 export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
-  const [feedback, setFeedback] = useState([]);
-  const [story, setStory] = useState([]);
+  const [feedback, setFeedback] = useState({});
+  const [story, setStory] = useState();
 
   useEffect(() => {
     setFeedback(require('../data/feedback-data.json').data);
-    setStory(require('../data/story-data.json').data);
+    setStory(require('../data/story-data.json').data.action);
   }, []);
 
   console.log({ feedback, story });
@@ -21,7 +21,7 @@ export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
     <Screen containerStyle={styles.container}>
       <View style={styles.navBar} />
       <View style={styles.storyPlayback}>
-        <StoryPlaybackCard />
+        <StoryPlaybackCard story={story} />
       </View>
       <StoryFeedback />
     </Screen>

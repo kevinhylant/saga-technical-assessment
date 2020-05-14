@@ -10,10 +10,14 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "moment": "^2.25.3",
     "react": "16.11.0",
     "react-native": "0.62.2",
-    "react-native-iphone-x-helper": "^1.2.1"
+    "react-native-iphone-x-helper": "^1.2.1",
+    "react-native-swift": "^1.2.3",
+    "react-native-track-player": "^1.2.3",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -45,5 +49,6 @@
       "json",
       "node"
     ]
-  }
+  },
+  "isSwift": true
 }
