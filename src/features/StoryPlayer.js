@@ -13,61 +13,95 @@ import {
   View,
   ViewPropTypes,
 } from 'react-native';
+import { icons } from '../assets';
+import { token, fonts } from '../DesignSystem';
 
+const progressDotSize = 10;
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: token.colorWhite,
   },
   cover: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'grey',
+    width: 80,
+    height: 80,
+    borderRadius: token.radiusLarge,
+    backgroundColor: token.colorBrandLight,
   },
   progress: {
     height: 1,
-    width: '90%',
-    marginTop: 10,
+    marginHorizontal: token.spacingSmall,
+    marginTop: token.spacingLarge,
     flexDirection: 'row',
+    alignItems: 'center',
+  },
+  progressDot: {
+    position: 'absolute',
+    backgroundColor: token.colorBrand,
+    width: progressDotSize,
+    height: progressDotSize,
+    bottom: -(progressDotSize / 2),
+    borderRadius: progressDotSize / 2,
   },
   title: {
-    marginTop: 10,
+    ...fonts.regular,
+    flexWrap: 'wrap',
   },
   artist: {
-    fontWeight: 'bold',
+    ...fonts.tiny,
+    marginTop: token.spacingSmall,
+  },
+  description: {
+    ...fonts.small,
   },
   controls: {
     marginVertical: 20,
     flexDirection: 'row',
   },
-  controlButtonContainer: {
-    flex: 1,
+  controlContainer: {
+    marginHorizontal: token.spacingSmallPlus,
   },
-  controlButtonText: {
-    fontSize: 18,
-    textAlign: 'center',
+  controlIcon: {
+    width: 24,
+    height: 24,
+    margin: token.spacingSmallPlus,
+  },
+  controlIconSeekBackward: {
+    transform: [{ scaleX: -1 }],
   },
 });
 
 function ProgressBar() {
   const progress = useTrackPlayerProgress();
-
+  const percentComplete = `${
+    (progress.position / progress.duration) * 100 ?? 0
+  }%`;
+  console.log({ percentComplete });
   return (
     <View style={styles.progress}>
       <View style={{ flex: progress.position, backgroundColor: 'red' }} />
       <View
         style={{
-          flex: progress.duration - progress.position,
-          backgroundColor: 'grey',
+          width: '100%',
+          backgroundColor: token.colorGray30,
+          height: 3,
         }}
+      />
+      <View
+        style={[
+          {
+            left: percentComplete,
+          },
+          styles.progressDot,
+        ]}
       />
     </View>
   );
 }
 
-function ControlButton({ title, onPress }) {
+function ControlButton({ iconSource, onPress, style }) {
   return (
-    <TouchableOpacity style={styles.controlButtonContainer} onPress={onPress}>
-      <Text style={styles.controlButtonText}>{title}</Text>
+    <TouchableOpacity style={styles.controlContainer} onPress={onPress}>
+      <Image source={iconSource} style={[styles.controlIcon, style]} />
     </TouchableOpacity>
   );
 }
@@ -75,26 +109,14 @@ function ControlButton({ title, onPress }) {
 ControlButton.propTypes = {
   title: PropTypes.string.isRequired,
   onPress: PropTypes.func.isRequired,
+  style: PropTypes.object.isRequired,
 };
 
 export function StoryPlayer(props) {
   const playbackState = usePlaybackState();
   const progress = useTrackPlayerProgress();
-  const [trackTitle, setTrackTitle] = useState('');
-  const [trackArtwork, setTrackArtwork] = useState();
-  const [trackArtist, setTrackArtist] = useState('');
 
-  useTrackPlayerEvents(['playback-track-changed'], async (event) => {
-    console.log({ event });
-    if (event.type === TrackPlayer.TrackPlayerEvents.PLAYBACK_TRACK_CHANGED) {
-      const track = await TrackPlayer.getTrack(event.nextTrack);
-      const { title, artist, artwork } = track || {};
-
-      setTrackTitle(title);
-      setTrackArtist(artist);
-      setTrackArtwork(artwork);
-    }
-  });
+  const { track } = props;
 
   async function initializePlayerWithTrack() {
     console.log('initializePlayerWithTrack');
@@ -122,48 +144,58 @@ export function StoryPlayer(props) {
 
   async function seekBackward() {
     const { position } = progress;
-    await TrackPlayer.seekTo(position - props.seekBySeconds);
+    await TrackPlayer.seekTo(position - 10);
   }
 
   async function seekForward() {
     const { position } = progress;
-    await TrackPlayer.seekTo(position + props.seekBySeconds);
+    await TrackPlayer.seekTo(position + 10);
   }
 
   useEffect(() => {
     initializePlayerWithTrack();
   }, []);
 
-  let middleButtonText = 'Play';
+  let togglePlayBackIconSource = icons.playArrow;
   if (
     playbackState === TrackPlayer.STATE_PLAYING ||
     playbackState === TrackPlayer.STATE_BUFFERING
   ) {
-    middleButtonText = 'Pause';
+    togglePlayBackIconSource = icons.pause;
   }
-
+  console.log({ togglePlayBackIconSource });
   return (
     <View style={[styles.container, props.containerStyle]}>
-      <ProgressBar />
       <View style={{ flexDirection: 'row' }}>
-        <View style={{ flexDirection: 'column' }}>
-          <Text style={styles.title}>{trackTitle}</Text>
-          <Text style={styles.artist}>{trackArtist}</Text>
+        <View style={{ flexDirection: 'column', flex: 1 }}>
+          <Text style={styles.artist}>{track.artist}</Text>
+          <Text style={styles.title}>{track.title}</Text>
         </View>
-        <Image style={styles.cover} source={{ uri: trackArtwork }} />
+        <Image style={styles.cover} source={{ uri: track.artwork }} />
       </View>
+      <ProgressBar />
       <View style={styles.controls}>
-        <ControlButton title={'<<'} onPress={seekBackward} />
-        <ControlButton title={middleButtonText} onPress={togglePlayback} />
-        <ControlButton title={'>>'} onPress={seekForward} />
+        <ControlButton
+          iconSource={icons.timeSeekForward}
+          onPress={seekBackward}
+          style={styles.controlIconSeekBackward}
+        />
+        <ControlButton
+          iconSource={togglePlayBackIconSource}
+          onPress={togglePlayback}
+        />
+        <ControlButton
+          iconSource={icons.timeSeekForward}
+          onPress={seekForward}
+        />
       </View>
+      <Text style={styles.description}>{track.description}</Text>
     </View>
   );
 }
 
 StoryPlayer.propTypes = {
   containerStyle: ViewPropTypes.style,
-  seekBySeconds: PropTypes.func.isRequired,
   track: PropTypes.object.isRequired,
 };
 

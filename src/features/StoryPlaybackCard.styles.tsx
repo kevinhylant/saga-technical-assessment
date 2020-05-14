@@ -1,20 +1,16 @@
 import { StyleSheet, DevSettings } from 'react-native';
-import { fonts, token } from '../DesignSystem';
+
+import { token } from '../DesignSystem';
 
 export const styles = StyleSheet.create({
   card: {
-    // width: '100%',
     backgroundColor: token.colorWhite,
     borderRadius: token.radiusLarge,
-    // padding: token.spacingRegular,
-    // width: '80%',
-    elevation: 1,
-    borderRadius: 4,
-    shadowRadius: 2,
-    shadowOpacity: 0.1,
+    padding: token.spacingRegular,
     alignItems: 'center',
-    shadowColor: 'black',
-    backgroundColor: 'white',
+    shadowColor: '#000000',
+    shadowRadius: 4,
+    shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 1 },
   },
 });

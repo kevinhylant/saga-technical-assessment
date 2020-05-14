@@ -46,6 +46,7 @@ function getTrack(story) {
     artist: creatorFullName,
     date: createdAt,
     artwork: creator.thumbnail,
+    description: 'My sample description',
   };
 }
 
@@ -64,11 +65,5 @@ export const StoryPlaybackCard: React.FunctionComponent<Props> = ({
     return null;
   }
 
-  return (
-    <StoryPlayer
-      seekBySeconds={10}
-      containerStyle={styles.card}
-      track={track}
-    />
-  );
+  return <StoryPlayer containerStyle={styles.card} track={track} />;
 };
