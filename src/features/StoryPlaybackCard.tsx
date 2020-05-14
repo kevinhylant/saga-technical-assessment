@@ -46,7 +46,7 @@ function getTrack(story) {
     artist: creatorFullName,
     date: createdAt,
     artwork: creator.thumbnail,
-    description: 'My sample description',
+    description: actionInfo.description,
   };
 }
 

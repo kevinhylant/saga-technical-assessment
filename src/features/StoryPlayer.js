@@ -13,6 +13,8 @@ import {
   View,
   ViewPropTypes,
 } from 'react-native';
+
+import { Message } from '../components/Message';
 import { icons } from '../assets';
 import { token, fonts } from '../DesignSystem';
 
@@ -52,6 +54,8 @@ const styles = StyleSheet.create({
   },
   description: {
     ...fonts.small,
+    color: token.colorGray70,
+    width: '100%',
   },
   controls: {
     marginVertical: 20,
@@ -72,10 +76,8 @@ const styles = StyleSheet.create({
 
 function ProgressBar() {
   const progress = useTrackPlayerProgress();
-  const percentComplete = `${
-    (progress.position / progress.duration) * 100 ?? 0
-  }%`;
-  console.log({ percentComplete });
+  const { position, duration } = progress;
+  const percentComplete = `${(position / (duration || 1)) * 100}%`;
   return (
     <View style={styles.progress}>
       <View style={{ flex: progress.position, backgroundColor: 'red' }} />
@@ -189,7 +191,7 @@ export function StoryPlayer(props) {
           onPress={seekForward}
         />
       </View>
-      <Text style={styles.description}>{track.description}</Text>
+      <Message style={styles.description}>{track.description}</Message>
     </View>
   );
 }
