@@ -1,41 +1,14 @@
-import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import TrackPlayer, {
-  useTrackPlayerProgress,
-  usePlaybackState,
-  useTrackPlayerEvents,
-} from 'react-native-track-player';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewPropTypes,
-} from 'react-native';
 
-import { StoryPlayer } from './StoryPlayer';
+import { Story, Track } from '../Types';
+import { StoryPlayer } from './storyPlayer/StoryPlayer';
 import { styles } from './StoryPlaybackCard.styles';
 
 interface Props {
-  story?: {
-    id: string;
-    createdAt: string;
-    creator: {
-      firstName: string;
-      lastName: string;
-      thumbnail: string;
-    };
-    actionInfo: {
-      title: string;
-      length_ms: number;
-      media_url: string;
-      description: string;
-    };
-  };
+  story?: Story;
 }
 
-function getTrack(story) {
+function getTrack(story: Story): Track {
   const { id, createdAt, creator, actionInfo } = story;
   const creatorFullName = `${creator.firstName} ${creator.lastName}`;
 
@@ -53,7 +26,7 @@ function getTrack(story) {
 export const StoryPlaybackCard: React.FunctionComponent<Props> = ({
   story,
 }) => {
-  const [track, setTrack] = useState();
+  const [track, setTrack] = useState<Track>();
 
   useEffect(() => {
     if (story) {

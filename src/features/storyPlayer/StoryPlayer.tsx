@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import TrackPlayer, {
   useTrackPlayerProgress,
   usePlaybackState,
@@ -7,16 +6,18 @@ import TrackPlayer, {
 } from 'react-native-track-player';
 import {
   Image,
+  ImageSourcePropType,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  ViewPropTypes,
+  ViewStyle,
 } from 'react-native';
 
-import { Message } from '../components/Message';
-import { icons } from '../assets';
-import { token, fonts } from '../DesignSystem';
+import { PressHandler, Track } from '../../Types';
+import { Message } from '../../components/Message';
+import { icons } from '../../assets';
+import { token, fonts } from '../../DesignSystem';
 
 const progressDotSize = 10;
 const styles = StyleSheet.create({
@@ -74,10 +75,11 @@ const styles = StyleSheet.create({
   },
 });
 
-function ProgressBar() {
+export const ProgressBar: React.FunctionComponent<{}> = () => {
   const progress = useTrackPlayerProgress();
   const { position, duration } = progress;
   const percentComplete = `${(position / (duration || 1)) * 100}%`;
+
   return (
     <View style={styles.progress}>
       <View style={{ flex: progress.position, backgroundColor: 'red' }} />
@@ -98,42 +100,49 @@ function ProgressBar() {
       />
     </View>
   );
-}
-
-function ControlButton({ iconSource, onPress, style }) {
-  return (
-    <TouchableOpacity style={styles.controlContainer} onPress={onPress}>
-      <Image source={iconSource} style={[styles.controlIcon, style]} />
-    </TouchableOpacity>
-  );
-}
-
-ControlButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-  style: PropTypes.object.isRequired,
 };
 
-export function StoryPlayer(props) {
+interface ControlButtonProps {
+  iconSource: ImageSourcePropType;
+  onPress: PressHandler;
+  style?: ViewStyle;
+}
+
+export const ControlButton: React.FunctionComponent<ControlButtonProps> = ({
+  iconSource,
+  onPress,
+  style,
+}) => (
+  <TouchableOpacity style={styles.controlContainer} onPress={onPress}>
+    <Image source={iconSource} style={[styles.controlIcon, style]} />
+  </TouchableOpacity>
+);
+
+interface Props {
+  containerStyle?: ViewStyle;
+  track: Track;
+}
+
+export const StoryPlayer: React.FunctionComponent<Props> = ({
+  containerStyle,
+  track,
+}) => {
   const playbackState = usePlaybackState();
   const progress = useTrackPlayerProgress();
 
-  const { track } = props;
-
-  async function initializePlayerWithTrack() {
-    console.log('initializePlayerWithTrack');
+  async function initializePlayerWithTrack(): Promise<void> {
     await TrackPlayer.setupPlayer();
-    await TrackPlayer.add(props.track);
+    await TrackPlayer.add(track);
   }
 
-  async function togglePlayback() {
+  async function togglePlayback(): Promise<void> {
     const currentTrack = await TrackPlayer.getCurrentTrack();
     console.log({ currentTrack });
     // Just in case the track fails to load when the component mounts
     // let's reset the player and add the track again
     if (currentTrack == null) {
       await TrackPlayer.reset();
-      await TrackPlayer.add(props.track);
+      await TrackPlayer.add(track);
       await TrackPlayer.play();
     } else {
       if (playbackState === TrackPlayer.STATE_PAUSED) {
@@ -144,12 +153,12 @@ export function StoryPlayer(props) {
     }
   }
 
-  async function seekBackward() {
+  async function seekBackward(): Promise<void> {
     const { position } = progress;
     await TrackPlayer.seekTo(position - 10);
   }
 
-  async function seekForward() {
+  async function seekForward(): Promise<void> {
     const { position } = progress;
     await TrackPlayer.seekTo(position + 10);
   }
@@ -167,7 +176,7 @@ export function StoryPlayer(props) {
   }
   console.log({ togglePlayBackIconSource });
   return (
-    <View style={[styles.container, props.containerStyle]}>
+    <View style={[styles.container, containerStyle]}>
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flexDirection: 'column', flex: 1 }}>
           <Text style={styles.artist}>{track.artist}</Text>
@@ -194,13 +203,4 @@ export function StoryPlayer(props) {
       <Message style={styles.description}>{track.description}</Message>
     </View>
   );
-}
-
-StoryPlayer.propTypes = {
-  containerStyle: ViewPropTypes.style,
-  track: PropTypes.object.isRequired,
-};
-
-StoryPlayer.defaultProps = {
-  style: {},
 };

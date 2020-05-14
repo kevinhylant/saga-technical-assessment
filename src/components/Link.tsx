@@ -1,5 +1,7 @@
-import React, { PureComponent } from 'react';
-import { StyleSheet, Text, GestureResponderEvent } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
+
+import { PressHandler } from '../Types';
 import { token } from '../DesignSystem';
 
 // StyleSheet is tiny, so just keeping it in this file
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
 
 interface Props {
   children: string;
-  onPress: (event: GestureResponderEvent) => void;
+  onPress: PressHandler;
   style?: object;
 }
 
