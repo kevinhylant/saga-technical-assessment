@@ -18,7 +18,11 @@ export const Message: React.FunctionComponent<Props> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  function handleExpandContent(): void {
+  function truncateContent(): void {
+    setIsExpanded(false);
+  }
+
+  function expandContent(): void {
     setIsExpanded(true);
   }
 
@@ -33,15 +37,29 @@ export const Message: React.FunctionComponent<Props> = ({
       messageToDisplay = words.slice(0, WORD_COUNT_TRUNCATE_TO).join(' ');
     }
   }
+  console.log({
+    messageToDisplay,
+    isExpanded,
+    isTruncated,
+  })
 
   if (!messageToDisplay) {
     return null;
   }
 
   return (
-    <Text style={[styles.message, style]}>
+    <Text style={style}>
       {isTruncated ? `${messageToDisplay}... ` : messageToDisplay}
-      {isTruncated && <Link onPress={handleExpandContent}>more</Link>}
+      {isTruncated && (
+        <Link style={[style, styles.link]} onPress={expandContent}>
+          more
+        </Link>
+      )}
+      {isExpanded && (
+        <Link style={[style, styles.link]} onPress={truncateContent}>
+          {` less`}
+        </Link>
+      )}
     </Text>
   );
 };

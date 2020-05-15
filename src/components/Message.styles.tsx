@@ -7,5 +7,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: token.colorWhite,
   },
-  message: {},
+  // link color override is required otherwise the link will
+  // inherit whatever style (color) passed into Message
+  link: {
+    color: token.colorBrand,
+  },
 });

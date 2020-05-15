@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useTrackPlayerProgress } from 'react-native-track-player';
 
+import { Message } from '../../components/Message';
 import { styles } from './StoryPlayerProgressBar.styles';
 
 export const StoryPlayerProgressBar: React.FunctionComponent<{}> = () => {
@@ -24,8 +25,8 @@ export const StoryPlayerProgressBar: React.FunctionComponent<{}> = () => {
         />
       </View>
       <View style={styles.timeLabels}>
-        <Text style={styles.timeLabel}>0:00</Text>
-        <Text style={styles.timeLabel}>-3:25</Text>
+        <Message style={styles.timeLabel}>0:00</Message>
+        <Message style={styles.timeLabel}>-3:25</Message>
       </View>
     </View>
   );

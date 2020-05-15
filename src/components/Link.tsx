@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
 import { PressHandler } from '../Types';
-import { token } from '../DesignSystem';
+import { fonts, token } from '../DesignSystem';
 
 // StyleSheet is tiny, so just keeping it in this file
 const styles = StyleSheet.create({
   link: {
+    ...fonts.regular,
     color: token.colorBrand,
   },
 });
