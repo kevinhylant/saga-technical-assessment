@@ -5,18 +5,25 @@ import { dropShadow, fonts, token } from '../../DesignSystem';
 export const styles = StyleSheet.create({
   container: {
     paddingVertical: token.spacingRegular,
-    paddingHorizontal: token.spacingRegular,
     justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  thumbnail: {
+    height: token.spacingMega,
+    width: token.spacingMega,
+    borderRadius: token.spacingMega / 2,
   },
   contentContainer: {
     flexDirection: 'column',
+    flex: 1,
   },
-  contentLabel: {
+  contentSummary: {
     flexDirection: 'row',
   },
   creatorName: {
     ...fonts.regular,
     ...fonts.boldWeight,
+    paddingLeft: token.spacingSmallPlus,
   },
   action: {
     ...fonts.regular,
@@ -29,6 +36,8 @@ export const styles = StyleSheet.create({
     ...dropShadow,
     backgroundColor: token.colorBrandLight,
     borderRadius: token.radiusLarge,
+    marginTop: token.spacingTiny,
+    marginLeft: token.spacingSmallPlus,
   },
   comment: {
     padding: token.spacingLarge,

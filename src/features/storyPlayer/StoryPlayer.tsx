@@ -4,7 +4,7 @@ import TrackPlayer, {
   usePlaybackState,
   useTrackPlayerEvents,
 } from 'react-native-track-player';
-import { Image, Text, View, ViewStyle } from 'react-native';
+import { Image, View, ViewStyle } from 'react-native';
 
 import { Message } from '../../components/Message';
 import { icons } from '../../assets';
@@ -74,8 +74,8 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
     <View style={[styles.container, containerStyle]}>
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flexDirection: 'column', flex: 1 }}>
-          <Text style={styles.artist}>{`${track.artist} • ${track.date}`}</Text>
-          <Text style={styles.title}>{track.title}</Text>
+          <Message style={styles.artist}>{`${track.artist} • ${track.date}`}</Message>
+          <Message style={styles.title}>{track.title}</Message>
         </View>
         <Image style={styles.cover} source={{ uri: track.artwork }} />
       </View>
@@ -95,7 +95,6 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
           onPress={seekForward}
         />
       </View>
-      <Message style={styles.description}>{track.description}</Message>
     </View>
   );
 };

@@ -1,10 +1,15 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 
+import { Message } from '../../components/Message';
 import { StoryAction, ActionType } from '../../Types';
 import { styles } from './StoryFeedbackItem.styles';
 
-const reactionEmojis = {
+interface EmojiMap {
+  [key: string]: string;
+}
+
+const emoji: EmojiMap = {
   cried: '😢',
   laughed: '😂',
   loved: '❤',
@@ -26,9 +31,9 @@ export const StoryFeedbackItem: React.FunctionComponent<Props> = ({
   storyAction: { actionInfo, actionType, creator },
 }) => {
   const durationIntoStory = msToMinutesAndSeconds(actionInfo.mark_ms);
-  let actionText;
+  let actionText = '';
   if (actionType === ActionType.reaction) {
-    actionText = ` ${reactionEmojis[actionInfo.reaction_type]} ${
+    actionText = ` ${emoji[actionInfo.reaction_type]} ${
       actionInfo.reaction_type
     } `;
   } else if (actionType === ActionType.comment) {
@@ -37,15 +42,18 @@ export const StoryFeedbackItem: React.FunctionComponent<Props> = ({
 
   return (
     <View style={styles.container}>
+      <Image style={styles.thumbnail} source={{ uri: creator.thumbnail }} />
       <View style={styles.contentContainer}>
-        <View style={styles.contentLabel}>
-          <Text style={styles.creatorName}>{creator.firstName}</Text>
-          <Text style={styles.action}>{actionText}</Text>
-          <Text style={styles.durationIntoStory}>{durationIntoStory}</Text>
+        <View style={styles.contentSummary}>
+          <Message style={styles.creatorName}>{creator.firstName}</Message>
+          <Message style={styles.action}>{actionText}</Message>
+          <Message style={styles.durationIntoStory}>
+            {durationIntoStory}
+          </Message>
         </View>
         {actionType === ActionType.comment && (
           <View style={styles.commentContainer}>
-            <Text style={styles.comment}>{actionInfo.text}</Text>
+            <Message style={styles.comment}>{actionInfo.text}</Message>
           </View>
         )}
       </View>

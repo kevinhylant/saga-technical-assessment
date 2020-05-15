@@ -7,9 +7,10 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: token.colorWhite,
-    paddingHorizontal: token.spacingRegular,
   },
-  scrollView: {},
+  scrollView: {
+    paddingHorizontal: token.spacingHuge,
+  },
   feedbackBar: {
     ...(isIphoneX()
       ? {

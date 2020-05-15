@@ -5,6 +5,8 @@ import { token, fonts } from '../../DesignSystem';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: token.colorWhite,
+    borderRadius: token.radiusLarge,
+    padding: token.spacingRegular,
   },
   cover: {
     width: 80,
@@ -20,14 +22,10 @@ export const styles = StyleSheet.create({
     ...fonts.tiny,
     marginTop: token.spacingSmall,
   },
-  description: {
-    ...fonts.small,
-    color: token.colorGray70,
-    width: '100%',
-  },
   controls: {
-    marginVertical: token.spacingLarge,
+    marginTop: token.spacingSmall,
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   controlIconSeekBackward: {
     transform: [{ scaleX: -1 }],

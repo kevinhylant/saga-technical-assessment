@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { ScrollView, View } from 'react-native';
 import moment from 'moment';
 
+import { Message } from '../components/Message';
 import { Story, Track } from '../Types';
 import { StoryPlayer } from './storyPlayer/StoryPlayer';
 import { styles } from './StoryPlaybackCard.styles';
@@ -38,5 +40,12 @@ export const StoryPlaybackCard: React.FunctionComponent<Props> = ({
     return null;
   }
 
-  return <StoryPlayer containerStyle={styles.card} track={track} />;
+  return (
+    <View style={styles.card}>
+      <StoryPlayer track={track} />
+      <ScrollView horizontal={false} style={styles.scrollView}>
+        <Message style={styles.description}>{track.description}</Message>
+      </ScrollView>
+    </View>
+  );
 };
