@@ -1,8 +1,9 @@
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 import { Feedback } from '../../Types';
 import { StoryFeedbackItem } from './StoryFeedbackItem';
+import { StoryFeedbackBar } from './StoryFeedbackBar';
 import { styles } from './StoryFeedback.styles';
 
 interface Props {
@@ -19,9 +20,7 @@ export const StoryFeedback: React.FunctionComponent<Props> = ({ feedback }) => {
           <StoryFeedbackItem key={storyAction.id} storyAction={storyAction} />
         ))}
       </ScrollView>
-      <View style={styles.feedbackBar}>
-        <Text>Reactions bar</Text>
-      </View>
+      <StoryFeedbackBar onSubmit={(): void => console.log('test')} />
     </View>
   );
 };

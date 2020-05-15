@@ -92,19 +92,16 @@ export const fonts = {
     color: token.colorBrandDark,
     fontFamily: token.fontFamilyDisplay,
     fontSize: token.fontSizeMobileDisplay,
-    fontWeight: token.fontWeightBold,
   },
-  displayTiny: {
+  displaySmall: {
     color: token.colorBrandDark,
     fontFamily: token.fontFamilyDisplay,
-    fontSize: token.fontSizeMobileDisplayTiny,
-    fontWeight: token.fontWeightBold,
+    fontSize: token.fontSizeMobileDisplaySmall,
   },
   displayLarge: {
     color: token.colorBrandDark,
     fontFamily: token.fontFamilyDisplay,
     fontSize: token.fontSizeMobileDisplayLarge,
-    fontWeight: token.fontWeightBold,
   },
   header: {
     color: token.colorBrandDark,
@@ -169,4 +166,10 @@ export const dropShadow = {
   },
   shadowOpacity: 0.15,
   shadowRadius: token.radiusSmall,
+};
+
+export const animations = {
+  buttons: {
+    activeOpacity: 0.85,
+  },
 };

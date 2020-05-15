@@ -3,18 +3,8 @@ import { Image, View } from 'react-native';
 
 import { Message } from '../../components/Message';
 import { StoryAction, ActionType } from '../../Types';
+import { emoji } from './StoryFeedbackBarItem';
 import { styles } from './StoryFeedbackItem.styles';
-
-interface EmojiMap {
-  [key: string]: string;
-}
-
-const emoji: EmojiMap = {
-  cried: '😢',
-  laughed: '😂',
-  loved: '❤',
-  surprised: '😲',
-};
 
 // converts 298999 >> 4:59
 function msToMinutesAndSeconds(ms: number): string {

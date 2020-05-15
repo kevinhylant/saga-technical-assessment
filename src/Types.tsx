@@ -5,6 +5,18 @@ export enum ActionType {
   reaction = 'RN',
 }
 
+export enum ReactionType {
+  commented = 'commented',
+  cried = 'cried',
+  laughed = 'laughed',
+  loved = 'loved',
+  surprised = 'surprised',
+}
+
+export interface StringMap {
+  [key: string]: string;
+}
+
 export type Feedback = {
   storyActions: [StoryAction];
 };
@@ -12,7 +24,7 @@ export type Feedback = {
 export type StoryAction = {
   actionInfo: {
     mark_ms: number;
-    reaction_type: string;
+    reaction_type: ReactionType;
     text: string;
   };
   actionType: ActionType;
