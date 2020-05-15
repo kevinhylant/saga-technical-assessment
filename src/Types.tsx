@@ -25,7 +25,7 @@ export type StoryAction = {
   actionInfo: {
     mark_ms: number;
     reaction_type: ReactionType;
-    text: string;
+    text?: string;
   };
   actionType: ActionType;
   createdAt: string;
@@ -35,6 +35,9 @@ export type StoryAction = {
     lastName: string;
     profilePhoto: string;
     thumbnail: string;
+  };
+  channel: {
+    id: string;
   };
   id: string;
 };

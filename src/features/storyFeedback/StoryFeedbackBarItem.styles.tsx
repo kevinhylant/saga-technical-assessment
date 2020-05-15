@@ -10,6 +10,5 @@ export const styles = StyleSheet.create({
     ...fonts.displaySmall,
     paddingVertical: token.spacingRegular,
     paddingHorizontal: token.spacingHigh,
-    backgroundColor: 'red',
   },
 });

@@ -1,25 +1,25 @@
 import React from 'react';
-import { Text, View, TouchableHighlight } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 import { ReactionType } from '../../Types';
 import { StoryFeedbackBarItem } from './StoryFeedbackBarItem';
 import { styles } from './StoryFeedbackBar.styles';
 
 interface Props {
-  onSubmit: Function;
+  addFeedback: Function;
 }
 
 export const StoryFeedbackBar: React.FunctionComponent<Props> = ({
-  onSubmit,
+  addFeedback,
 }) => {
   function onPressReaction(reaction: ReactionType): void {
-    onSubmit(reaction);
+    addFeedback(reaction);
   }
 
-  function onPressComment(reaction: ReactionType): void {
-    onSubmit(reaction);
+  function onPressComment(): void {
+    // Show a Modal from the bottom that contains a text area component
+    // and auto-focuses on it
   }
-  console.log({ onSubmit });
 
   return (
     <View style={styles.container}>

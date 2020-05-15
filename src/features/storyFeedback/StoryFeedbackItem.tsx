@@ -3,15 +3,9 @@ import { Image, View } from 'react-native';
 
 import { Message } from '../../components/Message';
 import { StoryAction, ActionType } from '../../Types';
+import { msToMinutesAndSeconds } from '../StoryHelpers';
 import { emoji } from './StoryFeedbackBarItem';
 import { styles } from './StoryFeedbackItem.styles';
-
-// converts 298999 >> 4:59
-function msToMinutesAndSeconds(ms: number): string {
-  const mins = Math.floor(ms / 60000);
-  const secs = Number(((ms % 60000) / 1000).toFixed(0));
-  return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-}
 
 interface Props {
   storyAction: StoryAction;
@@ -41,9 +35,9 @@ export const StoryFeedbackItem: React.FunctionComponent<Props> = ({
             {durationIntoStory}
           </Message>
         </View>
-        {actionType === ActionType.comment && (
+        {actionInfo.text && (
           <View style={styles.commentContainer}>
-            <Message style={styles.comment}>{actionInfo.text}</Message>
+            <Message>{actionInfo.text}</Message>
           </View>
         )}
       </View>

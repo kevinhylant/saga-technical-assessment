@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
         }
       : {
           paddingHorizontal: token.spacingSmall,
-          paddingBottom: token.spacingRegular,
         }),
   },
 });

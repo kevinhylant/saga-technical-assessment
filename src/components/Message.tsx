@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { Link } from '../components/Link';
 import { styles } from './Message.styles';
@@ -23,6 +23,7 @@ export const Message: React.FunctionComponent<Props> = ({
   }
 
   function expandContent(): void {
+    console.log('here');
     setIsExpanded(true);
   }
 
@@ -37,11 +38,6 @@ export const Message: React.FunctionComponent<Props> = ({
       messageToDisplay = words.slice(0, WORD_COUNT_TRUNCATE_TO).join(' ');
     }
   }
-  console.log({
-    messageToDisplay,
-    isExpanded,
-    isTruncated,
-  })
 
   if (!messageToDisplay) {
     return null;

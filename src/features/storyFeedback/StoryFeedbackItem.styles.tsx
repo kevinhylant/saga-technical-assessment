@@ -38,8 +38,6 @@ export const styles = StyleSheet.create({
     borderRadius: token.radiusLarge,
     marginTop: token.spacingTiny,
     marginLeft: token.spacingSmallPlus,
-  },
-  comment: {
     padding: token.spacingLarge,
   },
 });

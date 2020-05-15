@@ -32,7 +32,6 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
 
   async function togglePlayback(): Promise<void> {
     const currentTrack = await TrackPlayer.getCurrentTrack();
-    console.log({ currentTrack });
     // Just in case the track fails to load when the component mounts
     // let's reset the player and add the track again
     if (currentTrack == null) {
@@ -40,7 +39,10 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
       await TrackPlayer.add(track);
       await TrackPlayer.play();
     } else {
-      if (playbackState === TrackPlayer.STATE_PAUSED) {
+      if (
+        playbackState === TrackPlayer.STATE_PAUSED ||
+        playbackState === TrackPlayer.STATE_READY
+      ) {
         await TrackPlayer.play();
       } else {
         await TrackPlayer.pause();

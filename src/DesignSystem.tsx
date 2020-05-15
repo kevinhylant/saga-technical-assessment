@@ -25,7 +25,7 @@ export const token = {
   fontSizeHeaderSmall: 28,
   fontSizeMobileDisplay: 30,
   fontSizeMobileDisplayLarge: 52,
-  fontSizeMobileDisplaySmall: 26,
+  fontSizeMobileDisplaySmall: 24,
   fontSizeMobileDisplayTiny: 20,
   fontSizeHuge: 24,
   fontSizeLarge: 20,
@@ -130,7 +130,7 @@ export const fonts = {
   medium: {
     ...mediumWeight,
     color: token.colorBrandDark,
-    fontFamily: token.fontFamilyText,
+    fontFamily: token.fontFamilyTextMedium,
     fontSize: token.fontSizeMedium,
     lineHeight: token.lineHeightMedium,
   },

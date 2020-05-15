@@ -7,12 +7,14 @@ import { StoryFeedbackBar } from './StoryFeedbackBar';
 import { styles } from './StoryFeedback.styles';
 
 interface Props {
+  addFeedback: Function;
   feedback: Feedback;
 }
 
-export const StoryFeedback: React.FunctionComponent<Props> = ({ feedback }) => {
-  console.log({ feedback });
-
+export const StoryFeedback: React.FunctionComponent<Props> = ({
+  feedback,
+  addFeedback,
+}) => {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.scrollView}>
@@ -20,7 +22,7 @@ export const StoryFeedback: React.FunctionComponent<Props> = ({ feedback }) => {
           <StoryFeedbackItem key={storyAction.id} storyAction={storyAction} />
         ))}
       </ScrollView>
-      <StoryFeedbackBar onSubmit={(): void => console.log('test')} />
+      <StoryFeedbackBar addFeedback={addFeedback} />
     </View>
   );
 };
