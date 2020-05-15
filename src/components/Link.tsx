@@ -8,6 +8,7 @@ import { fonts, token } from '../DesignSystem';
 const styles = StyleSheet.create({
   link: {
     ...fonts.regular,
+    ...fonts.mediumWeight,
     color: token.colorBrand,
   },
 });

@@ -58,38 +58,37 @@ export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
   }
 
   function addFeedback(reactionType: ReactionType, text?: string): void {
-    if (feedback) {
-      const nowString = `${moment().unix()}`;
-      const markMs = Number((progress.position * 1000).toFixed());
-      const newStoryAction: StoryAction = {
-        id: nowString,
-        channel: {
-          id: '4242',
-        },
-        createdAt: nowString, // Prefer to store in timestamp like 2020-02-18T17:16:57.714928+00:00, but this works for now
-        creator,
-        actionType:
-          reactionType === ReactionType.commented
-            ? ActionType.comment
-            : ActionType.reaction,
-        actionInfo: {
-          mark_ms: markMs, // eslint-disable-line
-          reaction_type: reactionType, // eslint-disable-line
-          text,
-        },
-      };
-
-      setFeedback({
-        storyActions: sortByMarkMs(
-          feedback.storyActions.concat(newStoryAction),
-        ),
-      });
-      // show a success message temporarily
-      setActionConfirmationMessage('Added');
-      setTimeout(() => {
-        setActionConfirmationMessage(null);
-      }, 2000);
+    if (!feedback) {
+      return;
     }
+    const nowString = `${moment().unix()}`;
+    const markMs = Number((progress.position * 1000).toFixed());
+    const newStoryAction: StoryAction = {
+      id: nowString,
+      channel: {
+        id: '4242',
+      },
+      createdAt: nowString, // Prefer to store in timestamp like 2020-02-18T17:16:57.714928+00:00, but this works for now
+      creator,
+      actionType:
+        reactionType === ReactionType.commented
+          ? ActionType.comment
+          : ActionType.reaction,
+      actionInfo: {
+        mark_ms: markMs, // eslint-disable-line
+        reaction_type: reactionType, // eslint-disable-line
+        text,
+      },
+    };
+
+    setFeedback({
+      storyActions: sortByMarkMs(feedback.storyActions.concat(newStoryAction)),
+    });
+    // show a success message temporarily
+    setActionConfirmationMessage('Added');
+    setTimeout(() => {
+      setActionConfirmationMessage(null);
+    }, 2000);
   }
 
   return (

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
-import { animations } from '../../DesignSystem';
 import { ReactionType } from '../../Types';
 import { StoryFeedbackBarItem } from './StoryFeedbackBarItem';
 import { StoryFeedbackCommentInput } from './StoryFeedbackCommentInput';
@@ -49,8 +48,9 @@ export const StoryFeedbackBar: React.FunctionComponent<Props> = ({
         reactionType={ReactionType.commented}
       />
       <StoryFeedbackCommentInput
-        visible={commentInputVisible}
+        addFeedback={addFeedback}
         setVisible={setCommentInputVisible}
+        visible={commentInputVisible}
       />
     </View>
   );
