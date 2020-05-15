@@ -14,7 +14,7 @@ import { Screen } from '../components/Screen';
 import { StoryPlaybackCard } from './StoryPlaybackCard';
 import { StoryFeedback } from './storyFeedback/StoryFeedback';
 import { styles } from './StoryDetail.styles';
-import { StoryActionConfirmation } from './storyFeedback/StoryActionConfirmation';
+import { StoryFeedbackActionConfirmation } from './storyFeedback/StoryFeedbackActionConfirmation';
 
 // placeholder in lieu of an actual user account
 const creator = {
@@ -100,7 +100,7 @@ export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
       </View>
       <StoryFeedback addFeedback={addFeedback} feedback={feedback} />
       {actionConfirmationMessage && (
-        <StoryActionConfirmation message={actionConfirmationMessage} />
+        <StoryFeedbackActionConfirmation message={actionConfirmationMessage} />
       )}
     </Screen>
   );

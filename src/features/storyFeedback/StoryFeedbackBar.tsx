@@ -1,8 +1,10 @@
-import React from 'react';
-import { View, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
 
+import { animations } from '../../DesignSystem';
 import { ReactionType } from '../../Types';
 import { StoryFeedbackBarItem } from './StoryFeedbackBarItem';
+import { StoryFeedbackCommentInput } from './StoryFeedbackCommentInput';
 import { styles } from './StoryFeedbackBar.styles';
 
 interface Props {
@@ -12,11 +14,14 @@ interface Props {
 export const StoryFeedbackBar: React.FunctionComponent<Props> = ({
   addFeedback,
 }) => {
+  const [commentInputVisible, setCommentInputVisible] = useState(false);
+
   function onPressReaction(reaction: ReactionType): void {
     addFeedback(reaction);
   }
 
   function onPressComment(): void {
+    setCommentInputVisible(true);
     // Show a Modal from the bottom that contains a text area component
     // and auto-focuses on it
   }
@@ -42,6 +47,10 @@ export const StoryFeedbackBar: React.FunctionComponent<Props> = ({
       <StoryFeedbackBarItem
         onPress={onPressComment}
         reactionType={ReactionType.commented}
+      />
+      <StoryFeedbackCommentInput
+        visible={commentInputVisible}
+        setVisible={setCommentInputVisible}
       />
     </View>
   );

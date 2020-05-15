@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { styles } from './StoryActionConfirmation.styles';
+import { styles } from './StoryFeedbackActionConfirmation.styles';
 
 interface Props {
   message: string;
 }
 
-export const StoryActionConfirmation: React.FunctionComponent<Props> = ({
+export const StoryFeedbackActionConfirmation: React.FunctionComponent<Props> = ({
   message,
 }) => (
   <View style={styles.container}>
