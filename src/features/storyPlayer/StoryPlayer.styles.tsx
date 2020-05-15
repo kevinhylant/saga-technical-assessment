@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     backgroundColor: token.colorBrandLight,
   },
   title: {
-    ...fonts.regular,
+    ...fonts.medium,
     flexWrap: 'wrap',
   },
   artist: {
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   controls: {
-    marginVertical: token.spacingHigh,
+    marginVertical: token.spacingLarge,
     flexDirection: 'row',
   },
   controlIconSeekBackward: {

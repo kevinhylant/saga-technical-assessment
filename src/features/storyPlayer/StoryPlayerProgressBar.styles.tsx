@@ -1,12 +1,14 @@
 import { StyleSheet } from 'react-native';
 
-import { token } from '../../DesignSystem';
+import { fonts, token } from '../../DesignSystem';
 
 const progressDotSize = 10;
 export const styles = StyleSheet.create({
   container: {
-    height: 1,
     marginHorizontal: token.spacingSmall,
+  },
+  barContainer: {
+    height: 1,
     marginTop: token.spacingLarge,
     flexDirection: 'row',
     alignItems: 'center',
@@ -23,5 +25,14 @@ export const styles = StyleSheet.create({
     height: progressDotSize,
     bottom: -(progressDotSize / 2),
     borderRadius: progressDotSize / 2,
+  },
+  timeLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: token.spacingSmall,
+    paddingLeft: token.spacingTiny,
+  },
+  timeLabel: {
+    ...fonts.regular,
   },
 });

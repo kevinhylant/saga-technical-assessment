@@ -29,8 +29,8 @@ export const token = {
   fontSizeMobileDisplayTiny: 20,
   fontSizeHuge: 24,
   fontSizeLarge: 20,
-  fontSizeMedium: 18,
-  fontSizeRegular: 16,
+  fontSizeMedium: 16,
+  fontSizeRegular: 14,
   fontSizeSmall: 12,
   fontSizeTiny: 10,
   fontWeightBold: '700',
@@ -65,7 +65,7 @@ export const token = {
   sizeThumbnailHeight: 60,
   sizeThumbnailWidth: 60,
   screenHeader: 60,
-  spacingGiant: 54,
+  spacingGiant: 52,
   spacingMega: 48,
   spacing40: 40,
   spacingHuge: 32,
@@ -161,14 +161,12 @@ export const fonts = {
 };
 
 export const dropShadow = {
-  backgroundColor: token.colorWhite,
-
   // There is no token for pure black color
-  shadowColor: 'rgb(0 , 0, 0)',
+  shadowColor: 'rgb(0,0,0)',
   shadowOffset: {
     width: 0,
-    height: 0,
+    height: 3,
   },
-  shadowOpacity: 0.18,
-  shadowRadius: token.radiusLarge,
+  shadowOpacity: 0.15,
+  shadowRadius: token.radiusSmall,
 };

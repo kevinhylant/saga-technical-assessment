@@ -6,7 +6,7 @@ import { StoryPlayer } from './storyPlayer/StoryPlayer';
 import { styles } from './StoryPlaybackCard.styles';
 
 interface Props {
-  story?: Story;
+  story: Story;
 }
 
 function getTrack(story: Story): Track {
@@ -31,10 +31,8 @@ export const StoryPlaybackCard: React.FunctionComponent<Props> = ({
   const [track, setTrack] = useState<Track>();
 
   useEffect(() => {
-    if (story) {
-      setTrack(getTrack(story));
-    }
-  }, [story]);
+    setTrack(getTrack(story));
+  }, []);
 
   if (!track) {
     return null;

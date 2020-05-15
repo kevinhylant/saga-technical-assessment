@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   },
   storyPlayback: {
     paddingTop: token.spacingLarge,
-    paddingHorizontal: token.spacingGiant,
+    paddingHorizontal: token.spacingHuge,
     paddingBottom: token.spacingTiny,
   },
 });

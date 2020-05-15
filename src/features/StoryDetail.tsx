@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 
+import { Feedback, Story } from '../Types';
 import { Screen } from '../components/Screen';
 import { StoryPlaybackCard } from './StoryPlaybackCard';
-import { StoryFeedback } from './StoryFeedback';
+import { StoryFeedback } from './storyFeedback/StoryFeedback';
 import { styles } from './StoryDetail.styles';
 
 export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
-  const [feedback, setFeedback] = useState({});
-  const [story, setStory] = useState();
+  const [feedback, setFeedback] = useState<Feedback>();
+  const [story, setStory] = useState<Story>();
 
   useEffect(() => {
     setFeedback(require('../data/feedback-data.json').data);
     setStory(require('../data/story-data.json').data.action);
   }, []);
 
-  console.log({ feedback, story });
+  // Since data is fetched locally a loading indicator isn't really necessary
+  if (!feedback || !story) {
+    return null;
+  }
 
   return (
     <Screen containerStyle={styles.container}>
@@ -23,7 +27,7 @@ export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
       <View style={styles.storyPlayback}>
         <StoryPlaybackCard story={story} />
       </View>
-      <StoryFeedback />
+      <StoryFeedback feedback={feedback} />
     </Screen>
   );
 };
