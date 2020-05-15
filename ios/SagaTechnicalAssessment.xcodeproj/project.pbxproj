@@ -5,22 +5,25 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* SagaTechnicalAssessmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SagaTechnicalAssessmentTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* SagaTechnicalAssessmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SagaTechnicalAssessmentTests.m */; };
 		5E09232733378C462DF7374A /* libPods-SagaTechnicalAssessment-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6808B5E60734F2CA2DA9B4AD /* libPods-SagaTechnicalAssessment-tvOS.a */; };
 		6A9834F924DE26D64F8D900F /* libPods-SagaTechnicalAssessment.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E540DF209BF98581D3C5BE /* libPods-SagaTechnicalAssessment.a */; };
-		B768A247246CC86C00DF1CFB /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768A246246CC86C00DF1CFB /* dummy.swift */; };
+		B79BB44E246E3B62009DA30A /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */; };
+		B79BB44F246E3B62009DA30A /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */; };
+		B79BB450246E3B62009DA30A /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */; };
 		CE72E12B3438FE74634502C9 /* libPods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5711D2C8A04E9B629B491918 /* libPods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.a */; };
 		E692D02076FBE3F69D8EE322 /* libPods-SagaTechnicalAssessment-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21532AA827F39CD088394176 /* libPods-SagaTechnicalAssessment-tvOSTests.a */; };
-		24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +68,10 @@
 		8841C34841FAF11E881762FD /* Pods-SagaTechnicalAssessment-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SagaTechnicalAssessment-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SagaTechnicalAssessment-tvOSTests/Pods-SagaTechnicalAssessment-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BDAA963F1F5CA0DF4041EFC /* Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests/Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A0C26429AACD1ADCE44D61C9 /* Pods-SagaTechnicalAssessment-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SagaTechnicalAssessment-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-SagaTechnicalAssessment-tvOSTests/Pods-SagaTechnicalAssessment-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		B768A245246CC86C00DF1CFB /* SagaTechnicalAssessment-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SagaTechnicalAssessment-Bridging-Header.h"; sourceTree = "<group>"; };
-		B768A246246CC86C00DF1CFB /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
+		CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; path = RNPlaceholder.swift; sourceTree = "<group>"; };
 		CD145C9B98D6A592D3E1C89C /* Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests/Pods-SagaTechnicalAssessment-SagaTechnicalAssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */ = {isa = PBXFileReference; name = "RNPlaceholder.swift"; path = "RNPlaceholder.swift"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.swift; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +137,6 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				B768A246246CC86C00DF1CFB /* dummy.swift */,
-				B768A245246CC86C00DF1CFB /* SagaTechnicalAssessment-Bridging-Header.h */,
 			);
 			name = SagaTechnicalAssessment;
 			sourceTree = "<group>";
@@ -171,6 +170,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				EA100038DDAE987AADDD0093 /* Pods */,
+				B79BB451246E3B62009DA30A /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -186,6 +186,14 @@
 				2D02E4901E0B4A5D006451C7 /* SagaTechnicalAssessment-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B79BB451246E3B62009DA30A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				CC872DF3B0334E7AAEA2A203 /* RNPlaceholder.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		EA100038DDAE987AADDD0093 /* Pods */ = {
@@ -528,7 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* SagaTechnicalAssessmentTests.m in Sources */,
-				24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */,
+				B79BB44E246E3B62009DA30A /* RNPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,7 +545,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				B768A247246CC86C00DF1CFB /* dummy.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */,
 			);
@@ -549,7 +556,7 @@
 			files = (
 				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
 				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
-				24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */,
+				B79BB44F246E3B62009DA30A /* RNPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DCD954D1E0B4F2C00145EB5 /* SagaTechnicalAssessmentTests.m in Sources */,
-				24B22C04C36B416C8D4FE730 /* RNPlaceholder.swift in Sources */,
+				B79BB450246E3B62009DA30A /* RNPlaceholder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,8 +617,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment.app/SagaTechnicalAssessment";
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment.app/SagaTechnicalAssessment";
 			};
 			name = Debug;
 		};
@@ -632,8 +639,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment.app/SagaTechnicalAssessment";
 				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment.app/SagaTechnicalAssessment";
 			};
 			name = Release;
 		};
@@ -658,7 +665,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SagaTechnicalAssessment;
-				SWIFT_OBJC_BRIDGING_HEADER = "SagaTechnicalAssessment-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -681,7 +687,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SagaTechnicalAssessment;
-				SWIFT_OBJC_BRIDGING_HEADER = "SagaTechnicalAssessment-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -710,9 +715,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SagaTechnicalAssessment-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -739,9 +744,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SagaTechnicalAssessment-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -767,9 +772,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SagaTechnicalAssessment-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment-tvOS.app/SagaTechnicalAssessment-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -795,9 +800,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.SagaTechnicalAssessment-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SagaTechnicalAssessment-tvOS.app/SagaTechnicalAssessment-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -911,8 +916,8 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
 				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
