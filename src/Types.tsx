@@ -66,6 +66,7 @@ export type Track = {
   date: string;
   artwork: string;
   description: string;
+  lengthMs: number;
 };
 
 export type PressHandler = (event: GestureResponderEvent) => void;

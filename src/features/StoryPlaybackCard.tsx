@@ -24,6 +24,7 @@ function getTrack(story: Story): Track {
     date,
     artwork: creator.thumbnail,
     description: actionInfo.description,
+    lengthMs: actionInfo.length_ms,
   };
 }
 

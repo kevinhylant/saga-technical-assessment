@@ -65,24 +65,21 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
   }, []);
 
   let togglePlayBackIconSource = icons.playArrow;
-  if (
-    playbackState === TrackPlayer.STATE_PLAYING ||
-    playbackState === TrackPlayer.STATE_BUFFERING
-  ) {
+  if (playbackState === TrackPlayer.STATE_PLAYING) {
     togglePlayBackIconSource = icons.pause;
   }
 
   return (
     <View style={[styles.container, containerStyle]}>
-      <View style={{ flexDirection: 'row' }}>
-        <View style={{ flexDirection: 'column', flex: 1 }}>
+      <View style={styles.summary}>
+        <View style={styles.summaryContent}>
           <Message
             style={styles.artist}>{`${track.artist} • ${track.date}`}</Message>
           <Message style={styles.title}>{track.title}</Message>
         </View>
         <Image style={styles.cover} source={{ uri: track.artwork }} />
       </View>
-      <StoryPlayerProgressBar />
+      <StoryPlayerProgressBar lengthMs={track.lengthMs} />
       <View style={styles.controls}>
         <StoryPlayerControlButton
           iconSource={icons.timeSeekForward}

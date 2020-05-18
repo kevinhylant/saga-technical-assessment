@@ -7,6 +7,14 @@ export const styles = StyleSheet.create({
     backgroundColor: token.colorWhite,
     borderRadius: token.radiusLarge,
     padding: token.spacingRegular,
+    width: '100%',
+  },
+  summary: {
+    flexDirection: 'row',
+  },
+  summaryContent: {
+    flexDirection: 'column',
+    flex: 1,
   },
   cover: {
     width: 80,

@@ -992,6 +992,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
+"@react-native-community/slider@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@react-native-community/slider/-/slider-2.0.9.tgz#bf74045c96f1fb22e3ec961e321300c230c63990"
+  integrity sha512-6GHUKXxiDSs75VZQRa6B+nxo8rqpIEcegZ1iCSQG4aW2oSVepceqDol+0y3/KaBt5WMpD4KybLw8ZZqkT6olaQ==
+
 "@types/babel__core@^7.1.0":
   version "7.1.7"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.7.tgz#1dacad8840364a57c98d0dd4855c6dd3752c6b89"
@@ -1468,6 +1473,18 @@ aws4@^1.8.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
+
+azir-slider@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/azir-slider/-/azir-slider-1.0.1.tgz#7192e88faba56524ef92077e5064ab269b992ac7"
+  integrity sha512-Lrqv3rWHzZnLteHkmJfPJh393LwxrdCZ1M5SQLEeSswT3cPQQ07PeuQXi+EpLAxAdkhWsYaPKEcULIO/Rax6Rg==
+  dependencies:
+    azir-theme "^1.x.x"
+
+azir-theme@^1.x.x:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/azir-theme/-/azir-theme-1.0.9.tgz#15e48f8add17a1b2395ebc0a8c5c1ac44fcb48f0"
+  integrity sha512-EXNrAtTeBQkY5QSKgUfY0QbCxhV3LjZ6x+QTvJF6oisPILnW+03Qd9qKHe387eR9nhs59qFYZ7dxvI3LMRYxfw==
 
 babel-eslint@10.1.0:
   version "10.1.0"
