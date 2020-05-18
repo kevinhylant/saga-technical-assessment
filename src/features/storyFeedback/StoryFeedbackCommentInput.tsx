@@ -43,6 +43,7 @@ export const StoryFeedbackCommentInput: React.FunctionComponent<Props> = ({
   function postComment(): void {
     addFeedback(ReactionType.commented, comment);
     hideCommentInput();
+    setComment(''); // clear the input after it has been submitted
   }
 
   return (
