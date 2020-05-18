@@ -5,7 +5,6 @@ import Slider from '@react-native-community/slider';
 
 import { Message } from '../../components/Message';
 import { token } from '../../DesignSystem';
-import { icons } from '../../assets';
 import { msToSeconds, msToMinutesAndSeconds } from '../StoryHelpers';
 import { styles } from './StoryPlayerProgressBar.styles';
 
@@ -75,8 +74,8 @@ export const StoryPlayerProgressBar: React.FunctionComponent<Props> = ({
         maximumValue={lengthMs}
         step={1000}
         value={positionToDisplay}
-        thumbTintColor={token.colorBrand}
-        minimumTrackTintColor={token.colorBrand}
+        thumbTintColor={isSliding ? token.colorGray70 : token.colorBrand}
+        minimumTrackTintColor={isSliding ? token.colorGray70 : token.colorBrand}
         maximumTrackTintColor={token.colorGray30}
         onSlidingStart={onSlidingStart}
         onValueChange={onValueChange}
