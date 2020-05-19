@@ -45,25 +45,27 @@ $ npx react-native run-ios
 $ npx react-native run-android
 ```
 
-### Troubleshooting
+
+
+## Troubleshooting
 
 - If you encounter terminal errors using npx to launch the app, try running the app via XCode (for iOS) or Android Studio (for Android). For both XCode and Android Studio, open this project in the respective application at the root of either the `/ios` or `/android` folder.
 
-#### iOS
+### iOS
 - Install pods from the `/ios` director using `pod install`
 - Once complete, tap the black play (run) icon in the top left corner of XCode
 
-#### Android
+### Android
 - Wait for gradle sync to finish in Android Studio (e.g. all progress indicators at the bottom should be complete)
 - Tap the green play (run) icon in the top tools bar of Android Studio
 
 
-### Screen recording
+## Screen recording
 - #### [iPhone 11 recording](https://www.loom.com/share/63e3cbf224f04a2c8de223c23686061d)
 - #### [iPhone 6S recording](https://www.loom.com/share/b704ebb5b38446c99b418ae8d17008cd)
 - #### [Android recording](https://www.loom.com/share/2e926347b6d64c6f9b56026c12b1c314)
 
-### Assessment questions
+## Assessment questions
 1. How long did you spend on this and what would you change if you had more time to spend on it?
     - While I didn’t keep close track, I’d guess 13-14 hours in total.
     - If I had more time, I'd find a way to adjust the size of the time slider, regression testing on Android more, and add UI and unit tests.
