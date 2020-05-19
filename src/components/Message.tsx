@@ -23,7 +23,6 @@ export const Message: React.FunctionComponent<Props> = ({
   }
 
   function expandContent(): void {
-    console.log('here');
     setIsExpanded(true);
   }
 
