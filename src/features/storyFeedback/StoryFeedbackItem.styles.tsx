@@ -14,8 +14,9 @@ export const styles = StyleSheet.create({
     borderRadius: token.spacingMega / 2,
   },
   contentContainer: {
-    flexDirection: 'column',
     flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   contentSummary: {
     flexDirection: 'row',

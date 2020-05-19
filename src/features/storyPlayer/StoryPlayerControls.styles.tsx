@@ -25,4 +25,12 @@ export const styles = StyleSheet.create({
   timeLabel: {
     ...fonts.regular,
   },
+  controlButtons: {
+    marginTop: token.spacingSmall,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  controlIconSeekBackward: {
+    transform: [{ scaleX: -1 }],
+  },
 });

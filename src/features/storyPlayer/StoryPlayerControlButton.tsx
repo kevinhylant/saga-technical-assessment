@@ -10,17 +10,25 @@ import { PressHandler } from '../../Types';
 import { styles } from './StoryPlayerControlButton.styles';
 
 interface Props {
+  disabled?: boolean;
   iconSource: ImageSourcePropType;
   onPress: PressHandler;
   style?: ImageStyle;
 }
 
 export const StoryPlayerControlButton: React.FunctionComponent<Props> = ({
+  disabled,
   iconSource,
   onPress,
   style,
 }) => (
-  <TouchableOpacity style={styles.container} onPress={onPress}>
-    <Image source={iconSource} style={[styles.icon, style]} />
+  <TouchableOpacity
+    disabled={disabled}
+    style={styles.container}
+    onPress={onPress}>
+    <Image
+      source={iconSource}
+      style={[styles.icon, disabled && styles.iconDisabled, style]}
+    />
   </TouchableOpacity>
 );

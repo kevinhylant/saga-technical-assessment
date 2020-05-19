@@ -22,6 +22,6 @@ export const styles = StyleSheet.create({
   storyPlayback: {
     paddingTop: token.spacingLarge,
     paddingHorizontal: token.spacingHuge,
-    paddingBottom: token.spacingTiny,
+    paddingBottom: token.spacingSmall,
   },
 });

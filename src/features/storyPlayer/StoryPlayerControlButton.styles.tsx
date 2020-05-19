@@ -11,4 +11,7 @@ export const styles = StyleSheet.create({
     height: token.sizeIconHeight,
     margin: token.spacingSmallPlus,
   },
+  iconDisabled: {
+    tintColor: token.colorGray50,
+  },
 });

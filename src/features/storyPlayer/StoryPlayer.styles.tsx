@@ -30,12 +30,4 @@ export const styles = StyleSheet.create({
     ...fonts.tiny,
     marginTop: token.spacingSmall,
   },
-  controls: {
-    marginTop: token.spacingSmall,
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  controlIconSeekBackward: {
-    transform: [{ scaleX: -1 }],
-  },
 });
