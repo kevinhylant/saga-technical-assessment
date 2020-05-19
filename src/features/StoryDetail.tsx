@@ -61,14 +61,14 @@ export const StoryDetail: React.FunctionComponent<{}> = ({}) => {
     if (!feedback) {
       return;
     }
-    const nowString = `${moment().unix()}`;
+    const nowString = `${moment().format('x')}`;
     const markMs = Number((progress.position * 1000).toFixed());
     const newStoryAction: StoryAction = {
       id: nowString,
       channel: {
         id: '4242',
       },
-      createdAt: nowString, // Prefer to store in timestamp like 2020-02-18T17:16:57.714928+00:00, but this works for now
+      createdAt: nowString, // Would rather to store as timestamp as provided in json (2020-02-18T17:16:57.714928+00:00), but this works for now
       creator,
       actionType:
         reactionType === ReactionType.commented

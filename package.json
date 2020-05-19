@@ -12,7 +12,6 @@
   "dependencies": {
     "@react-native-community/slider": "^2.0.9",
     "add": "^2.0.6",
-    "azir-slider": "^1.0.1",
     "moment": "^2.25.3",
     "react": "16.11.0",
     "react-native": "0.62.2",
