@@ -1,5 +1,6 @@
 # Getting started
 
+👋Welcome Andrew!
 After cloning or downloading this repo, to get it up and running, please perform the following.
 
 ## Installing dependencies
@@ -20,14 +21,15 @@ _Please reference [nodenv's docs for troubleshooting](https://nicedoc.io/nodenv/
 $ nodenv install
 ```
 
-4. Install yarn and node package runner, [npx](https://www.npmjs.com/package/npx), globally
+4. Install yarn (a node package manger)
 
 ```
-$ npm install yarn npx -g
+$ npm install yarn -g
 ```
 
 5. Install app dependencies
 
+After opening a fresh tab in your terminal, navigate to the project, and run:
 ```
 $ yarn install
 ```
@@ -35,12 +37,14 @@ $ yarn install
 ## Run the app locally
 ### iOS
 
+Install Xcode on your machine & follow prompts to install command line tools required by Xcode. Then run:
 ```
 $ npx react-native run-ios
 ```
 
 ### Android
 
+Install Android Studio on your machine and run:
 ```
 $ npx react-native run-android
 ```
@@ -48,8 +52,7 @@ $ npx react-native run-android
 
 
 ## Troubleshooting
-
-- If you encounter terminal errors using npx to launch the app, try running the app via XCode (for iOS) or Android Studio (for Android). For both XCode and Android Studio, open this project in the respective application at the root of either the `/ios` or `/android` folder.
+If you encounter terminal errors using npx to launch the app, try running the app via XCode (for iOS) or Android Studio (for Android). For both XCode and Android Studio, open this project in the respective application at the root of either the `/ios` or `/android` folder.
 
 ### iOS
 - Install pods from the `/ios` director using `pod install`
