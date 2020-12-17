@@ -3,7 +3,7 @@
 [Assessment Instructions Here](https://docs.google.com/document/d/1TSjMN-q9bAfzptFBlvqBSRbODVSvUyJ--RN1XIUmyFM)
 
 👋Welcome!
-To get started, tap on the green "Use this template" button to create your own copy of this repo.
+Once you’ve read the code challenge instructions above, you can get started by tapping on the green "Use this template" button above in GitHub to create your own copy of this repo.
 
 Then clone the repo and perform the following to get it up and running.
 
