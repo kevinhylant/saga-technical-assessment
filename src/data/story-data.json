@@ -8,10 +8,10 @@
       "createdAt": "2020-02-13T17:59:56.807423+00:00",
       "creator": {
         "id": "3",
-        "firstName": "Andrew",
-        "lastName": "Overton",
-        "profilePhoto": "https://saga-media-storage.s3.amazonaws.com/media/public/pp-e32gzlPtNWgsDuuo6AvkRfvDCpj7B5uKiyLYWoda3zPQgMA9Qa.jpg",
-        "thumbnail": "https://saga-media-storage.s3.amazonaws.com/media/public/cache/c1/c9/c1c9637738cf8537a066b83d2642eb47.jpg"
+        "firstName": "Kevin",
+        "lastName": "Hylant",
+        "profilePhoto": "https://saga-media-storage.s3-us-west-2.amazonaws.com/static/images/saga-app-icon.png",
+        "thumbnail": "https://saga-media-storage.s3-us-west-2.amazonaws.com/static/images/saga-app-icon.png"
       },
       "actionType": "AS",
       "actionInfo": {

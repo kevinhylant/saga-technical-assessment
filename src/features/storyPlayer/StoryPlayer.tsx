@@ -30,6 +30,8 @@ export const StoryPlayer: React.FunctionComponent<Props> = ({
     initializePlayerWithTrack();
   }, []);
 
+  console.log({ track });
+
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.summary}>
