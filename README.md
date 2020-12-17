@@ -38,6 +38,11 @@ After opening a fresh tab in your terminal, navigate to the project, and run:
 $ yarn install
 ```
 
+Once your node modules are installed, install your iOS-specific dependencies
+```
+$ cd ios && pod install && cd ..
+```
+
 ## Run the app locally
 ### iOS
 
@@ -46,17 +51,9 @@ Install Xcode on your machine & follow prompts to install command line tools req
 $ npx react-native run-ios
 ```
 
-### Android
-
-Install Android Studio on your machine and run:
-```
-$ npx react-native run-android
-```
-
-
 
 ## Troubleshooting
-If you encounter terminal errors using npx to launch the app, try running the app via XCode (for iOS) or Android Studio (for Android). For both XCode and Android Studio, open this project in the respective application at the root of either the `/ios` or `/android` folder.
+If you encounter terminal errors using npx to launch the app, try running the app via XCode, opening this project in the `/ios` folder.
 
 ### iOS
 - Install pods from the `/ios` director using `pod install`
